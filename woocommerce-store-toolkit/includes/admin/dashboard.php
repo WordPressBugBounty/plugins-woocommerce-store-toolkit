@@ -1,5 +1,7 @@
 <?php
-// Add WooCommerce store details to WordPress Administration Dashboard
+/**
+ * Add WooCommerce store details to WordPress Administration Dashboard
+ */
 function woo_st_add_dashboard_widgets() {
 
     // Simple check that WooCommerce is activated
@@ -18,7 +20,7 @@ function woo_st_add_dashboard_widgets() {
                 }
             }
         }
-}
+    }
 }
 add_action( 'wp_dashboard_setup', 'woo_st_add_dashboard_widgets' );
 

@@ -750,6 +750,7 @@ function woo_st_tab_template( $tab = '' ) {
             $delete_images_on_product_delete       = get_option( WOO_ST_PREFIX . '_delete_images_on_product_delete', 0 );
             $place_order_button                    = get_option( WOO_ST_PREFIX . '_place_order_button', 0 );
             $place_order_button_text               = get_option( WOO_ST_PREFIX . '_place_order_button_0', '' );
+            $enable_unit_pricing                   = get_option( WOO_ST_PREFIX . '_enable_unit_pricing', 0 );
             break;
 
         case 'settings':

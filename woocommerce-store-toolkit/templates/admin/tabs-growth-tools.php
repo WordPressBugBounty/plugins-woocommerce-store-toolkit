@@ -19,6 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         <ul>
             <li><a href="#by-our-team"><?php esc_html_e( 'By Our Team', 'woocommerce-store-toolkit' ); ?></a></li>
             <li><a href="#payments"><?php esc_html_e( 'Payments', 'woocommerce-store-toolkit' ); ?></a></li>
+            <li><a href="#ai-tools"><?php esc_html_e( 'AI Tools', 'woocommerce-store-toolkit' ); ?></a></li>
             <li><a href="#coupon-marketing"><?php esc_html_e( 'Coupon Marketing', 'woocommerce-store-toolkit' ); ?></a></li>
             <li><a href="#analytics"><?php esc_html_e( 'Analytics', 'woocommerce-store-toolkit' ); ?></a></li>
             <li><a href="#email-marketing"><?php esc_html_e( 'Email Marketing', 'woocommerce-store-toolkit' ); ?></a></li>
@@ -150,6 +151,26 @@ if ( ! defined( 'ABSPATH' ) ) {
                     </p>
                     <?php if ( ! woo_st_is_plugin_installed( 'woo-product-feed-pro/woocommerce-sea.php' ) ) : ?>
                         <a href="#" data-plugin-slug="woo-product-feed-pro" class="button button-primary"><?php esc_html_e( 'Install Plugin', 'woocommerce-store-toolkit' ); ?></a>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+        <div class="growth-tools-card" data-tags="by-our-team,ai-tools,automation">
+            <div class="card-title">
+                <img src="<?php echo esc_url( 'https://ps.w.org/storeagent-ai-for-woocommerce/assets/icon-128x128.png' ); ?>" alt="<?php esc_attr_e( 'StoreAgent AI for WooCommerce', 'woocommerce-store-toolkit' ); ?>" />
+                <h3><?php esc_html_e( 'StoreAgent AI for WooCommerce (Free Plugin)', 'woocommerce-store-toolkit' ); ?></h3>
+            </div>
+            <div class="card-body xs-text-center">
+                <p class="mt-0"><?php esc_html_e( 'Get AI Agents for WooCommerce with StoreAgent.ai, the free AI-powered plugin designed to automate tasks, personalize customer interactions, and optimize your eCommerce operations.', 'woocommerce-store-toolkit' ); ?></p>
+            </div>
+            <div class="card-footer">
+                <div class="install-status">
+                    <p class="m-0">
+                        <strong><?php esc_html_e( 'Status:', 'woocommerce-store-toolkit' ); ?></strong>
+                        <span class="install-status-value"><?php echo woo_st_is_plugin_installed( 'storeagent-ai-for-woocommerce/storeagent-ai-for-woocommerce.php' ) ? esc_html_e( 'Installed', 'woocommerce-store-toolkit' ) : esc_html_e( 'Not installed', 'woocommerce-store-toolkit' ); ?></span>
+                    </p>
+                    <?php if ( ! woo_st_is_plugin_installed( 'storeagent-ai-for-woocommerce/storeagent-ai-for-woocommerce.php' ) ) : ?>
+                        <a href="#" data-plugin-slug="storeagent-ai-for-woocommerce" class="button button-primary"><?php esc_html_e( 'Install Plugin', 'woocommerce-store-toolkit' ); ?></a>
                     <?php endif; ?>
                 </div>
             </div>

@@ -63,6 +63,18 @@ if ( ! defined( 'ABSPATH' ) ) {
             <p><?php esc_html_e( 'Allow editing individual product variations with the Edit Product screen.', 'woocommerce-store-toolkit' ); ?></p>
         </div>
     </div>
+
+    <div class="quick-enhancements-grid-item">
+        <div class="box">
+            <h3>Enable Unit Pricing</h3>
+            <label class="switch">
+                <input type="checkbox" name="enable_unit_pricing" value="1"<?php checked( $enable_unit_pricing, 1 ); ?>>
+                <span class="slider"></span>
+            </label>
+            <p><?php esc_html_e( 'Display unit pricing (e.g., $1.30 per 100mL) on product pages.', 'woocommerce-store-toolkit' ); ?></p>
+            <p><?php esc_html_e( 'You can set the unit pricing in the product metabox on the product page.', 'woocommerce-store-toolkit' ); ?></p>
+        </div>
+    </div>
 </div>
 
 <h4><?php esc_html_e( 'Order Enhancements', 'woocommerce-store-toolkit' ); ?></h4>
@@ -215,5 +227,9 @@ if ( ! defined( 'ABSPATH' ) ) {
         transform: translateX(16px);
     }
 
-
+    .unit-price {
+        font-size: 0.9em;
+        color: #666;
+        margin-top: 5px;
+    }
 </style>

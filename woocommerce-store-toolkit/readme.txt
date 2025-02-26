@@ -4,8 +4,8 @@ Contributors: jkohlbach, RymeraWebCo, visser.labs, smub
 Donate link: https://visser.com.au/
 Tags: woocommerce booster, woocommerce tools, woocommerce extensions, store toolkit, delete orders
 Requires at least: 5.4
-Tested up to: 6.6
-Stable tag: 2.4.1
+Tested up to: 6.7
+Stable tag: 2.4.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -135,6 +135,10 @@ If you are here to report any sort of security issue with this Plugin please use
 https://visser.com.au/contact/
 
 == Changelog ==
+
+= 2.4.2 =
+* Bug Fix: Mixed use of apply_filters and do_action with same hook name
+* Feature: Implement unit pricing for simple and variable products
 
 = 2.4.1 =
 * Bug Fix: Empty Cart button shows on legacy cart regardless of whether quick enhancement is on

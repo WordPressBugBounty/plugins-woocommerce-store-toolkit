@@ -25,6 +25,7 @@ class Plugin_Installer {
         'invoice-gateway-for-woocommerce'       => 'invoice-gateway-for-woocommerce/invoice-gateway-for-woocommerce.php',
         'woocommerce-store-exporter'            => 'woocommerce-store-exporter/exporter.php',
         'woo-product-feed-pro'                  => 'woo-product-feed-pro/woocommerce-sea.php',
+        'storeagent-ai-for-woocommerce'         => 'storeagent-ai-for-woocommerce/storeagent-ai-for-woocommerce.php',
         'funnelkit-stripe-woo-payment-gateway'  => 'funnelkit-stripe-woo-payment-gateway/funnelkit-stripe-woo-payment-gateway.php',
         'funnel-builder'                        => 'funnel-builder/funnel-builder.php',
         'wpforms-lite'                          => 'wpforms-lite/wpforms.php',
@@ -134,6 +135,22 @@ class Plugin_Installer {
         // Update FunnelKit Stripe source option when FunnelKit Stripe or Funnel Builder are installed.
         if ( 'funnelkit-stripe-woo-payment-gateway' === $plugin_slug || 'funnel-builder' === $plugin_slug ) {
             update_option( 'fkwcs_wp_stripe', '51c012eccfe7b12df7e51be418fab892', false );
+        }
+
+        // Update StoreAgent AI source option when StoreAgent AI is installed.
+        if ( 'storeagent-ai-for-woocommerce' === $plugin_slug ) {
+            update_option( 'storeagent_installed_by', 'store-toolkit' );
+        }
+
+        // Update WooCommerce Wholesale Prices source option when WooCommerce Wholesale Prices is installed.
+        if ( 'woocommerce-wholesale-prices' === $plugin_slug ) {
+            update_option( 'wwp_installed_by', 'store-toolkit' );
+        }
+
+        // Update Advanced Coupons source option when Advanced Coupons is installed.
+        if ( 'advanced-coupons-for-woocommerce-free' === $plugin_slug ) {
+            update_option( 'acfw_installed_by', 'store-toolkit' );
+
         }
 
         return is_wp_error( $result ) ? $result : true;

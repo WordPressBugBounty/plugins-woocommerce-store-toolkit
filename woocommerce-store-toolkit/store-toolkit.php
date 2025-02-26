@@ -3,7 +3,7 @@
  * Plugin Name: Store Toolkit for WooCommerce
  * Plugin URI: https://wordpress.org/plugins/woocommerce-store-toolkit/
  * Description: Store Toolkit includes a growing set of commonly-used WooCommerce administration tools aimed at web developers and store maintainers.
- * Version: 2.4.1
+ * Version: 2.4.2
  * Author: Visser Labs
  * Author URI: https://visser.com.au/
  * License: GPL2
@@ -11,13 +11,13 @@
  * Text Domain: woocommerce-store-toolkit
  * Domain Path: /languages/
  *
- * Tested up to: 6.6
+ * Tested up to: 6.7
  * WC requires at least: 2.3
- * WC tested up to: 9.2
+ * WC tested up to: 9.6
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-exit; // Exit if accessed directly
+    exit; // Exit if accessed directly.
 }
 
 define( 'WOO_ST_DIRNAME', basename( __DIR__ ) );
@@ -27,11 +27,13 @@ define( 'WOO_ST_URL', plugin_dir_url( __FILE__ ) );
 define( 'WOO_ST_TEMPLATE_PATH', WOO_ST_PATH . 'templates/' );
 define( 'WOO_ST_TEMPLATE_URL', WOO_ST_URL . 'templates/' );
 define( 'WOO_ST_PREFIX', 'woo_st' );
-define( 'WOO_ST_VERSION', '2.4.1' );
+define( 'WOO_ST_VERSION', '2.4.2' );
 
+// Include required files.
 require_once WOO_ST_PATH . 'common/common.php';
 require_once WOO_ST_PATH . 'includes/functions.php';
 require_once WOO_ST_PATH . 'includes/formatting.php';
+require_once WOO_ST_PATH . 'includes/class-woo-st-unit-pricing.php';
 if ( defined( 'WP_CLI' ) && WP_CLI ) {
     require_once WOO_ST_PATH . 'includes/wp-cli.php';
 }
@@ -45,8 +47,19 @@ if ( ! defined( 'WOO_ST_DEBUG' ) ) {
     define( 'WOO_ST_DEBUG', false );
 }
 
-function woo_st_i18n() {
+/**
+ * Initialize Store Toolkit core functionality.
+ */
+function woo_st_init() {
+    // Initialize required classes that need to be available everywhere.
+    new WOO_ST_Unit_Pricing();
+}
+add_action( 'init', 'woo_st_init' );
 
+/**
+ * Load plugin text domain.
+ */
+function woo_st_i18n() {
     load_plugin_textdomain( 'woocommerce-store-toolkit', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 }
 add_action( 'init', 'woo_st_i18n' );
@@ -64,16 +77,17 @@ function woo_st_declare_hpos_compatibility() {
 add_action( 'before_woocommerce_init', 'woo_st_declare_hpos_compatibility' );
 
 if ( is_admin() ) {
-
     /* Start of: WordPress Administration */
 
-    // Register our install script for first time install
+    // Register our install script for first time install.
     include_once WOO_ST_PATH . 'includes/install.php';
     register_activation_hook( __FILE__, 'woo_st_install' );
 
+    /**
+     * Initialize Store Toolkit admin functionality.
+     */
     function woo_st_admin_init() {
-
-        // Check the User has the manage_woocommerce capability
+        // Admin-specific initialization here.
         if ( ! current_user_can( 'manage_woocommerce' ) ) {
             return;
         }
@@ -83,7 +97,7 @@ if ( is_admin() ) {
         switch ( $action ) {
 
             case 'nuke':
-                // Make sure we play nice with other WooCommerce and WordPress nukes
+                // Make sure we play nice with other WooCommerce and WordPress nukes.
                 if ( ! isset( $_POST['woo_st_nuke'] ) ) {
                     $url = add_query_arg(
                         array(
@@ -94,7 +108,7 @@ if ( is_admin() ) {
                             ),
                         )
                     );
-                    wp_redirect( $url );
+                    wp_safe_redirect( $url );
                     exit();
                 }
 
@@ -105,19 +119,19 @@ if ( is_admin() ) {
                     set_time_limit( 0 );
                 }
 
-                // List of supported datasets
+                // List of supported datasets.
                 $datasets = woo_st_get_dataset_types();
-                // Check if the re-commence nuke notice has been enabled
+                // Check if the re-commence nuke notice has been enabled.
                 $in_progress = woo_st_get_option( 'in_progress', false );
                 if ( isset( $_GET['dataset'] ) && ! empty( $in_progress ) ) {
                     $dataset = strtolower( sanitize_text_field( $_GET['dataset'] ) );
-                    if ( in_array( $dataset, $datasets ) ) {
+                    if ( in_array( $dataset, $datasets, true ) ) {
                         $response = woo_st_clear_dataset( $dataset );
                     }
                     return;
                 }
 
-                // WooCommerce
+                // WooCommerce.
                 if ( isset( $_POST['woo_st_products'] ) ) {
                     $product_status = ( isset( $_POST['woo_st_products_status'] ) ? array_map( 'sanitize_text_field', $_POST['woo_st_products_status'] ) : false );
                     $args           = array();
@@ -163,7 +177,7 @@ if ( is_admin() ) {
                     }
                     if ( isset( $_POST['woo_st_orders_date'] ) ) {
                         $args['date'] = sanitize_text_field( $_POST['woo_st_orders_date'] );
-                        if ( $args['date'] == 'manual' ) {
+                        if ( 'manual' === $args['date'] ) {
                             $args['date_from'] = ( isset( $_POST['woo_st_orders_date_from'] ) ? sanitize_text_field( $_POST['woo_st_orders_date_from'] ) : false );
                             $args['date_to']   = ( isset( $_POST['woo_st_orders_date_to'] ) ? sanitize_text_field( $_POST['woo_st_orders_date_to'] ) : false );
                         }
@@ -177,7 +191,7 @@ if ( is_admin() ) {
                     $response = woo_st_clear_dataset( 'download_permission' );
                 }
 
-                // 3rd Party
+                // 3rd Party.
                 if ( isset( $_POST['woo_st_creditcards'] ) ) {
                     $response = woo_st_clear_dataset( 'credit_card' );
                 }
@@ -203,7 +217,7 @@ if ( is_admin() ) {
                     $response = woo_st_clear_dataset( 'google_product_feed' );
                 }
 
-                // WordPress
+                // WordPress.
                 if ( isset( $_POST['woo_st_posts'] ) ) {
                     $response = woo_st_clear_dataset( 'post' );
                 }
@@ -236,7 +250,7 @@ if ( is_admin() ) {
                             'message_type' => 'success',
                         )
                     );
-                    wp_redirect( $url );
+                    wp_safe_redirect( $url );
                     exit();
                 }
                 break;
@@ -253,7 +267,7 @@ if ( is_admin() ) {
                             'message_type' => 'success',
                         )
                     );
-                    wp_redirect( $url );
+                    wp_safe_redirect( $url );
                     exit();
                 }
                 break;
@@ -270,7 +284,7 @@ if ( is_admin() ) {
                             'message_type' => 'success',
                         )
                     );
-                    wp_redirect( $url );
+                    wp_safe_redirect( $url );
                     exit();
                 }
                 break;
@@ -287,7 +301,7 @@ if ( is_admin() ) {
                             'message_type' => 'success',
                         )
                     );
-                    wp_redirect( $url );
+                    wp_safe_redirect( $url );
                     exit();
                 }
                 break;
@@ -326,7 +340,7 @@ if ( is_admin() ) {
                 }
                 break;
 
-            // Save changes on Settings screen
+            // Save changes on Settings screen.
             case 'save-settings':
                 // We need to verify the nonce.
                 if ( ! empty( $_POST ) && wp_verify_nonce( $_REQUEST['_wpnonce'], 'woo_st_save_settings' ) ) {
@@ -340,19 +354,19 @@ if ( is_admin() ) {
                 return;
 
             default:
-                // Category
+                // Category.
                 $term_taxonomy = 'product_cat';
                 add_action( $term_taxonomy . '_edit_form_fields', 'woo_st_category_data_meta_box', 11 );
-                // Tag
+                // Tag.
                 $term_taxonomy = 'product_tag';
                 add_action( $term_taxonomy . '_edit_form_fields', 'woo_st_tag_data_meta_box', 11 );
-                // Brand
+                // Brand.
                 $term_taxonomy = 'product_brand';
                 add_action( $term_taxonomy . '_edit_form_fields', 'woo_st_brand_data_meta_box', 11 );
-                // Product Vendor
+                // Product Vendor.
                 $term_taxonomy = 'yith_shop_vendor';
                 add_action( $term_taxonomy . '_edit_form_fields', 'woo_st_product_vendor_data_meta_box', 11 );
-                // User
+                // User.
                 add_action( 'show_user_profile', 'woo_st_user_orders', 9 );
                 add_action( 'edit_user_profile', 'woo_st_user_orders', 9 );
                 add_action( 'show_user_profile', 'woo_st_user_data_meta_box', 11 );
@@ -364,7 +378,7 @@ if ( is_admin() ) {
                 add_filter( 'manage_users_custom_column', 'woo_st_user_column_values', 11, 3 );
                 add_filter( 'admin_footer_text', 'woo_st_admin_footer_text' );
 
-                // Add a User column to the Orders screen
+                // Add a User column to the Orders screen.
                 add_filter( 'manage_edit-shop_order_columns', 'woo_st_admin_order_column_headers', 20 );
                 add_action( 'manage_shop_order_posts_custom_column', 'woo_st_admin_order_column_content', 10, 2 );
 
@@ -378,7 +392,7 @@ if ( is_admin() ) {
         if ( isset( $_GET['message'] ) ) {
             $message = sanitize_text_field( wp_kses_post( $_GET['message'] ) );
             // Get message type, must be 'success', 'error' or 'info'.
-            $message_type = ( isset( $_GET['message_type'] ) && in_array( sanitize_text_field( $_GET['message_type'] ), array( 'success', 'error', 'info' ) )
+            $message_type = ( isset( $_GET['message_type'] ) && in_array( sanitize_text_field( $_GET['message_type'] ), array( 'success', 'error', 'info' ), true )
             ? sanitize_text_field( $_GET['message_type'] ) : 'info' );
 
             // Display the message.
@@ -387,13 +401,16 @@ if ( is_admin() ) {
     }
     add_action( 'admin_init', 'woo_st_admin_init' );
 
+    /**
+     * Display backend HTML page for the Store Toolkit.
+     */
     function woo_st_default_html_page() {
 
         global $wpdb;
 
         $tab = false;
-        if ( isset( $_GET['tab'] ) ) {
-            $tab = sanitize_text_field( $_GET['tab'] );
+        if ( isset( $_GET['tab'] ) ) { // phpcs:ignore
+            $tab = sanitize_text_field( $_GET['tab'] ); // phpcs:ignore
         }
 
         include_once WOO_ST_PATH . 'templates/admin/tabs.php';
@@ -447,6 +464,9 @@ if ( is_admin() ) {
         woo_st_template_footer();
     }
 
+    /**
+     * Save quick enhancement settings via AJAX.
+     */
     function woo_st_ajax_save_quick_enhancement() {
         // We need to verify the nonce using wp_verify_nonce.
         if ( ! empty( $_POST ) && wp_verify_nonce( $_REQUEST['_wpnonce'], 'woo_st_quick_enhancements' ) ) {
@@ -476,57 +496,69 @@ if ( is_admin() ) {
 
     /* Start of: Storefront */
 
-    function woo_st_init() {
-
-        // Check if auto-complete Order Status is turned on
-        $autocomplete_order = get_option( WOO_ST_PREFIX . '_autocomplete_order', 0 );
-        if ( $autocomplete_order == 1 ) {
-            add_action( 'woocommerce_checkout_order_processed', 'woo_st_autocomplete_order_status', 10, 2 );
-        }
-        return false;
-    }
-    add_action( 'init', 'woo_st_init' );
-
+    /**
+     * Handle Store Toolkit CRON operations.
+     *
+     * Validates CRON access and executes scheduled tasks if authorized.
+     *
+     * @since 2.4.0
+     * @return void
+     */
     function woo_st_cron() {
 
         $action = ( function_exists( 'woo_get_action' ) ? woo_get_action() : false );
-        // This is where the CRON magic happens
-        if ( $action <> 'woo_st-cron' ) {
+        // This is where the CRON magic happens.
+        if ( 'woo_st-cron' !== $action ) {
             return;
         }
 
-        // Check that Store Toolkit is installed and activated or jump out
+        // Check that Store Toolkit is installed and activated or jump out.
         if ( ! function_exists( 'woo_st_get_option' ) ) {
             return;
         }
 
-        // Return silent response and record to error log if CRON support is disabled, bad secret key provided or IP whitelist is in effect
-        if ( woo_st_get_option( 'enable_cron', 0 ) == 0 ) {
+        // Return silent response and record to error log if CRON support is disabled, bad secret key provided or IP whitelist is in effect.
+        if ( 0 === woo_st_get_option( 'enable_cron', 0 ) ) {
             woo_st_error_log( sprintf( 'Error: %s', __( 'Failed CRON access, CRON is disabled', 'woocommerce-store-toolkit' ) ) );
             return;
         }
 
-        $key = ( isset( $_GET['key'] ) ? sanitize_text_field( $_GET['key'] ) : '' );
-        if ( $key <> woo_st_get_option( 'secret_key', '' ) ) {
+        $key = ( isset( $_GET['key'] ) ? sanitize_text_field( $_GET['key'] ) : '' ); // phpcs:ignore
+        if ( woo_st_get_option( 'secret_key', '' ) !== $key ) {
             $ip_address = woo_st_get_visitor_ip_address();
+            // translators: %s: IP address of the failed CRON attempt.
             woo_st_error_log( sprintf( 'Error: %s', sprintf( __( 'Failed CRON attempt from %s, incorrect secret key', 'woocommerce-store-toolkit' ), $ip_address ) ) );
             return;
         }
-        if ( $ip_whitelist = apply_filters( 'woo_st_cron_ip_whitelist', false ) ) {
+
+        $ip_whitelist = apply_filters( 'woo_st_cron_ip_whitelist', false );
+        if ( $ip_whitelist ) {
             $ip_address = woo_st_get_visitor_ip_address();
-            if ( ! in_array( $ip_address, $ip_whitelist ) ) {
+            if ( ! in_array( $ip_address, $ip_whitelist, true ) ) {
+                // translators: %s: IP address of the failed CRON attempt.
                 woo_st_error_log( sprintf( 'Error: %s', sprintf( __( 'Failed CRON attempt from %s, did not match IP whitelist', 'woocommerce-store-toolkit' ), $ip_address ) ) );
                 return;
             }
-            unset( $ip_whitelist );
         }
 
-        // Return simple binary response
+        // Return simple binary response.
         echo absint( woo_st_cron_nuke() );
 
         exit();
     }
     add_action( 'init', 'woo_st_cron' );
+
+    /**
+     * Initialize Store Toolkit frontend functionality.
+     */
+    function woo_st_frontend_init() {
+        // Frontend-specific initialization.
+        $autocomplete_order = get_option( WOO_ST_PREFIX . '_autocomplete_order', 0 );
+        if ( $autocomplete_order ) {
+            add_action( 'woocommerce_checkout_order_processed', 'woo_st_autocomplete_order_status', 10, 2 );
+        }
+    }
+    add_action( 'init', 'woo_st_frontend_init' );
 
     /* End of: Storefront */
 
