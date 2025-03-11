@@ -132,11 +132,6 @@ class Plugin_Installer {
             update_option( 'uncannyautomator_source', 'acoupons' );
         }
 
-        // Update FunnelKit Stripe source option when FunnelKit Stripe or Funnel Builder are installed.
-        if ( 'funnelkit-stripe-woo-payment-gateway' === $plugin_slug || 'funnel-builder' === $plugin_slug ) {
-            update_option( 'fkwcs_wp_stripe', '51c012eccfe7b12df7e51be418fab892', false );
-        }
-
         // Update StoreAgent AI source option when StoreAgent AI is installed.
         if ( 'storeagent-ai-for-woocommerce' === $plugin_slug ) {
             update_option( 'storeagent_installed_by', 'store-toolkit' );

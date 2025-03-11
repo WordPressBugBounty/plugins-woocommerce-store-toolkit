@@ -3,7 +3,7 @@
  * Plugin Name: Store Toolkit for WooCommerce
  * Plugin URI: https://wordpress.org/plugins/woocommerce-store-toolkit/
  * Description: Store Toolkit includes a growing set of commonly-used WooCommerce administration tools aimed at web developers and store maintainers.
- * Version: 2.4.2
+ * Version: 2.4.2.1
  * Author: Visser Labs
  * Author URI: https://visser.com.au/
  * License: GPL2
@@ -13,7 +13,7 @@
  *
  * Tested up to: 6.7
  * WC requires at least: 2.3
- * WC tested up to: 9.6
+ * WC tested up to: 9.7
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -27,7 +27,7 @@ define( 'WOO_ST_URL', plugin_dir_url( __FILE__ ) );
 define( 'WOO_ST_TEMPLATE_PATH', WOO_ST_PATH . 'templates/' );
 define( 'WOO_ST_TEMPLATE_URL', WOO_ST_URL . 'templates/' );
 define( 'WOO_ST_PREFIX', 'woo_st' );
-define( 'WOO_ST_VERSION', '2.4.2' );
+define( 'WOO_ST_VERSION', '2.4.2.1' );
 
 // Include required files.
 require_once WOO_ST_PATH . 'common/common.php';
