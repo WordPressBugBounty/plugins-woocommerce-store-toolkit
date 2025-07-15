@@ -1,4 +1,5 @@
 <?php
+// phpcs:disable 
 use Automattic\WooCommerce\Utilities\OrderUtil;
 use Automattic\WooCommerce\Internal\DataStores\Orders\CustomOrdersTableController;
 
@@ -234,44 +235,49 @@ function woo_st_order_data_meta_box( $post_or_order_object ) {
 }
 
 function woo_st_order_items_data_meta_box( $post_or_order_object ) {
-
     if ( OrderUtil::custom_orders_table_usage_is_enabled() ) {
-        $order       = ( $post_or_order_object instanceof WP_Post ) ? wc_get_order( $post_or_order_object->ID ) : $post_or_order_object;
-        $order_items = $order->get_items();
-
-        $type     = 'order_item';
         $template = 'order_item_data_hpos.php';
+        if ( ! file_exists( WOO_ST_PATH . 'templates/admin/' . $template ) ) {
+            $message = sprintf( __( 'We couldn\'t load the template file <code>%1$s</code> within <code>%2$s</code>, this file should be present.', 'woocommerce-store-toolkit' ), $template, WOO_ST_PATH . 'includes/admin/...' );
+        } else {
+            $order = ( $post_or_order_object instanceof WP_Post ) ? wc_get_order( $post_or_order_object->ID ) : $post_or_order_object;
+            foreach ( array( 'line_item', 'tax', 'shipping', 'fee', 'coupon' ) as $type ) {
+                $order_items = $order->get_items( $type );
+                include WOO_ST_PATH . 'templates/admin/' . $template;
+            }
+        }
     } else {
         global $wpdb;
         $post    = $post_or_order_object instanceof WP_Post ? $post_or_order_object : false;
         $post_id = absint( $post->ID ? $post->ID : false );
 
-        $order_items_sql = $wpdb->prepare( 'SELECT `order_item_id` as id, `order_item_name` as name, `order_item_type` as type FROM `' . $wpdb->prefix . 'woocommerce_order_items` WHERE `order_id` = %d', $post_id );
+        $order_items_sql = $wpdb->prepare( 'SELECT order_item_id as id, order_item_name as name, order_item_type as type FROM ' . $wpdb->prefix . 'woocommerce_order_items WHERE order_id = %d', $post_id );
         if ( $order_items = $wpdb->get_results( $order_items_sql ) ) {
             foreach ( $order_items as $key => $order_item ) {
-                $order_itemmeta_sql        = $wpdb->prepare( 'SELECT `meta_key`, `meta_value` FROM `' . $wpdb->prefix . 'woocommerce_order_itemmeta` AS order_itemmeta WHERE `order_item_id` = %d ORDER BY `order_itemmeta`.`meta_key` ASC', $order_item->id );
+                $order_itemmeta_sql        = $wpdb->prepare( 'SELECT meta_key, meta_value FROM ' . $wpdb->prefix . 'woocommerce_order_itemmeta AS order_itemmeta WHERE order_item_id = %d ORDER BY order_itemmeta.meta_key ASC', $order_item->id );
                 $order_items[ $key ]->meta = $wpdb->get_results( $order_itemmeta_sql );
             }
         }
 
         $type     = 'order_item';
         $template = 'order_item_data.php';
+        if ( file_exists( WOO_ST_PATH . 'templates/admin/' . $template ) ) {
+            include_once WOO_ST_PATH . 'templates/admin/' . $template;
+        } else {
+            $message = sprintf( __( 'We couldn\'t load the template file <code>%1$s</code> within <code>%2$s</code>, this file should be present.', 'woocommerce-store-toolkit' ), $template, WOO_ST_PATH . 'includes/admin/...' );
+        }
     }
-    if ( file_exists( WOO_ST_PATH . 'templates/admin/' . $template ) ) {
-        include_once WOO_ST_PATH . 'templates/admin/' . $template;
-    } else {
-        $message = sprintf( __( 'We couldn\'t load the template file <code>%1$s</code> within <code>%2$s</code>, this file should be present.', 'woocommerce-store-toolkit' ), $template, WOO_ST_PATH . 'includes/admin/...' );
-?>
-<p><strong><?php echo wp_kses_data( $message ); ?></strong></p>
-<p><?php _e( 'You can see this error for one of a few common reasons', 'woocommerce-store-toolkit' ); ?>:</p>
-<ul class="ul-disc">
-    <li><?php _e( 'WordPress was unable to create this file when the Plugin was installed or updated', 'woocommerce-store-toolkit' ); ?></li>
-    <li><?php _e( 'The Plugin files have been recently changed and there has been a file conflict', 'woocommerce-store-toolkit' ); ?></li>
-    <li><?php _e( 'The Plugin file has been locked and cannot be opened by WordPress', 'woocommerce-store-toolkit' ); ?></li>
-</ul>
-<p><?php _e( 'Jump onto our website and download a fresh copy of this Plugin as it might be enough to fix this issue. If this persists get in touch with us.', 'woocommerce-store-toolkit' ); ?></p>
-<?php
-
+    if ( ! empty( $message ) ) {
+        ?>
+        <p><strong><?php echo wp_kses_data( $message ); ?></strong></p>
+        <p><?php _e( 'You can see this error for one of a few common reasons', 'woocommerce-store-toolkit' ); ?>:</p>
+        <ul class="ul-disc">
+            <li><?php _e( 'WordPress was unable to create this file when the Plugin was installed or updated', 'woocommerce-store-toolkit' ); ?></li>
+            <li><?php _e( 'The Plugin files have been recently changed and there has been a file conflict', 'woocommerce-store-toolkit' ); ?></li>
+            <li><?php _e( 'The Plugin file has been locked and cannot be opened by WordPress', 'woocommerce-store-toolkit' ); ?></li>
+        </ul>
+        <p><?php _e( 'Jump onto our website and download a fresh copy of this Plugin as it might be enough to fix this issue. If this persists get in touch with us.', 'woocommerce-store-toolkit' ); ?></p>
+        <?php
     }
 }
 

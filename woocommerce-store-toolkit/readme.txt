@@ -4,8 +4,8 @@ Contributors: jkohlbach, RymeraWebCo, visser.labs, smub
 Donate link: https://visser.com.au/
 Tags: woocommerce booster, woocommerce tools, woocommerce extensions, store toolkit, delete orders
 Requires at least: 5.4
-Tested up to: 6.7
-Stable tag: 2.4.2.1
+Tested up to: 6.8
+Stable tag: 2.4.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -116,13 +116,17 @@ You'll also find new Dashboard reports around sales and store details.
 
 == Frequently Asked Questions ==
 
-**Where can I request new features?**
+= Where can I request new features? =
 
 Thought of a new Quick Enhancement or Handy Tool you'd love to see? [Drop us a line here!](https://visser.com.au/suggest-a-quick-enhancement/)
 
-**Where can I report bugs or contribute to the project?**
+= Where can I report bugs or contribute to the project? =
 
 Drop us a line on the support forums for this plugin. We actively monitor the forums for support.
+
+= How can I report security bugs? =
+
+You can report security bugs through the Patchstack Vulnerability Disclosure Program. The Patchstack team helps validate, triage and handle any security vulnerabilities. [Report a security vulnerability](https://patchstack.com/database/vdp/9e5fb238-9542-45dc-b7d1-9b9b9d7d0a23).
 
 == Support ==
 
@@ -135,6 +139,9 @@ If you are here to report any sort of security issue with this Plugin please use
 https://visser.com.au/contact/
 
 == Changelog ==
+
+= 2.4.3 =
+* Bug Fix: HPOS meta data issue on Order edit screen
 
 = 2.4.2.1 =
 * Improvement: Security and code improvements
