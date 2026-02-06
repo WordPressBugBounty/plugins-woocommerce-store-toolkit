@@ -2,14 +2,14 @@
 # This file is distributed under the GPL2.
 msgid ""
 msgstr ""
-"Project-Id-Version: Store Toolkit for WooCommerce 2.4.2.1\n"
+"Project-Id-Version: Store Toolkit for WooCommerce 2.4.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-store-toolkit\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-07-14T23:49:03+00:00\n"
+"POT-Creation-Date: 2025-11-19T06:22:03+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: woocommerce-store-toolkit\n"
@@ -91,12 +91,12 @@ msgstr ""
 msgid "It looks like a previous nuke failed to clear that dataset, this is common in large catalogues and is likely due to WordPress hitting a memory limit or server timeout. Don't stress, <a href=\"%1$s\">retry %2$s nuke?</a>"
 msgstr ""
 
-#: includes/admin.php:770
+#: includes/admin.php:794
 #, php-format
 msgid "We couldn't load the export template file <code>%1$s</code> within <code>%2$s</code>, this file should be present."
 msgstr ""
 
-#: includes/admin.php:774
+#: includes/admin.php:798
 #: includes/admin/meta_box.php:183
 #: includes/admin/meta_box.php:226
 #: includes/admin/meta_box.php:273
@@ -121,7 +121,7 @@ msgstr ""
 msgid "You can see this error for one of a few common reasons"
 msgstr ""
 
-#: includes/admin.php:776
+#: includes/admin.php:800
 #: includes/admin/meta_box.php:185
 #: includes/admin/meta_box.php:228
 #: includes/admin/meta_box.php:275
@@ -146,7 +146,7 @@ msgstr ""
 msgid "WordPress was unable to create this file when the Plugin was installed or updated"
 msgstr ""
 
-#: includes/admin.php:777
+#: includes/admin.php:801
 #: includes/admin/meta_box.php:186
 #: includes/admin/meta_box.php:229
 #: includes/admin/meta_box.php:276
@@ -171,7 +171,7 @@ msgstr ""
 msgid "The Plugin files have been recently changed and there has been a file conflict"
 msgstr ""
 
-#: includes/admin.php:778
+#: includes/admin.php:802
 #: includes/admin/meta_box.php:187
 #: includes/admin/meta_box.php:230
 #: includes/admin/meta_box.php:277
@@ -196,7 +196,7 @@ msgstr ""
 msgid "The Plugin file has been locked and cannot be opened by WordPress"
 msgstr ""
 
-#: includes/admin.php:780
+#: includes/admin.php:804
 #: includes/admin/meta_box.php:189
 #: includes/admin/meta_box.php:232
 #: includes/admin/meta_box.php:279
@@ -221,21 +221,21 @@ msgstr ""
 msgid "Jump onto our website and download a fresh copy of this Plugin as it might be enough to fix this issue. If this persists get in touch with us."
 msgstr ""
 
-#: includes/admin.php:794
+#: includes/admin.php:818
 msgid "User ID"
 msgstr ""
 
-#: includes/admin.php:830
+#: includes/admin.php:854
 #: templates/admin/tabs-nuke.php:70
 #: templates/admin/user_orders.php:8
 msgid "Orders"
 msgstr ""
 
-#: includes/admin.php:873
+#: includes/admin.php:897
 msgid "Image Sizes"
 msgstr ""
 
-#: includes/admin.php:927
+#: includes/admin.php:951
 msgid "No Image Sizes were available."
 msgstr ""
 

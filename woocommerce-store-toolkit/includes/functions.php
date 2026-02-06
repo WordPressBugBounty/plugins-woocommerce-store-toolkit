@@ -1071,7 +1071,7 @@ if ( is_admin() ) {
 
         // Enqueue script only on Checkout page.
         if ( is_checkout() && $place_order_button && ! empty( $place_order_button_text ) ) {
-            wp_enqueue_script( 'woo-st-place-order-button-frontend', WOO_ST_URL . 'dist/place-order-button-frontend.js', array( 'wp-element', 'wp-i18n', 'wp-data', 'wp-dom-ready' ), '1.0', true );
+            wp_enqueue_script( 'woo-st-place-order-button-frontend', WOO_ST_URL . 'dist/place-order-button-frontend.js', array( 'wc-blocks-checkout' ), '1.0', true );
             wp_localize_script(
                 'woo-st-place-order-button-frontend',
                 'woo_st_place_order_button_params',

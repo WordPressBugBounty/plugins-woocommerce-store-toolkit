@@ -4,8 +4,8 @@ Contributors: jkohlbach, RymeraWebCo, visser.labs, smub
 Donate link: https://visser.com.au/
 Tags: woocommerce booster, woocommerce tools, woocommerce extensions, store toolkit, delete orders
 Requires at least: 5.4
-Tested up to: 6.8
-Stable tag: 2.4.3
+Tested up to: 6.8.3
+Stable tag: 2.4.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -139,6 +139,10 @@ If you are here to report any sort of security issue with this Plugin please use
 https://visser.com.au/contact/
 
 == Changelog ==
+
+= 2.4.4 =
+* Bug Fix: Checkout "Place Order" Button Label Not Replacing in Checkout Block
+* Bug Fix: Security Issue: Local file inclusion security issue (Windows machines only)
 
 = 2.4.3 =
 * Bug Fix: HPOS meta data issue on Order edit screen

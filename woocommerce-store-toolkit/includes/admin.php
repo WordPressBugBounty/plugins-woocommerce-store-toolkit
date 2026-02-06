@@ -763,11 +763,35 @@ function woo_st_tab_template( $tab = '' ) {
             break;
 
     }
+
+    // Security: Complete Secure Implementation for LFI prevention
+    // Reference: https://github.com/Rymera-Web-Co/woocommerce-store-toolkit/issues/63
     if ( $tab ) {
-        if ( file_exists( WOO_ST_PATH . 'templates/admin/tabs-' . $tab . '.php' ) ) {
-            include_once WOO_ST_PATH . 'templates/admin/tabs-' . $tab . '.php';
+        // Whitelist of allowed tabs
+        $allowed_tabs = array(
+            'overview',
+            'nuke',
+            'post_types',
+            'quick-enhancements',
+            'settings',
+            'tools',
+            'growth-tools',
+        );
+
+        // Validate tab is in whitelist
+        if ( ! in_array( $tab, $allowed_tabs, true ) ) {
+            $tab = 'overview'; // Default to safe value
+        }
+
+        // Construct safe file path
+        $file_path = WOO_ST_PATH . 'templates/admin/tabs-' . $tab . '.php';
+
+        // Verify file exists in the intended directory
+        if ( file_exists( $file_path ) && strpos( realpath( $file_path ), realpath( WOO_ST_PATH . 'templates/admin/' ) ) === 0 ) {
+            include_once $file_path;
         } else {
-            $message = sprintf( __( 'We couldn\'t load the export template file <code>%1$s</code> within <code>%2$s</code>, this file should be present.', 'woocommerce-store-toolkit' ), 'tabs-' . esc_attr( $tab ) . '.php', WOO_CD_PATH . 'templates/admin/...' );
+            // Error handling
+            $message = sprintf( __( 'We couldn\'t load the export template file <code>%1$s</code> within <code>%2$s</code>, this file should be present.', 'woocommerce-store-toolkit' ), 'tabs-' . esc_attr( $tab ) . '.php', WOO_ST_PATH . 'templates/admin/...' );
             woo_st_admin_notice_html( $message, 'error' );
             ob_start();
             ?>
