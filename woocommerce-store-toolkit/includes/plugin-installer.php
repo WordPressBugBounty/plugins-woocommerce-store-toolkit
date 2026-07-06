@@ -37,6 +37,7 @@ class Plugin_Installer {
         'reviews-feed'                          => 'reviews-feed/sb-reviews.php',
         'rafflepress'                           => 'rafflepress/rafflepress.php',
         'all-in-one-seo-pack'                   => 'all-in-one-seo-pack/all_in_one_seo_pack.php',
+        'saveto-wishlist-lite-for-woocommerce'  => 'saveto-wishlist-lite-for-woocommerce/saveto-wishlist-lite-for-woocommerce.php',
     );
 
     /**

@@ -5,7 +5,7 @@ Donate link: https://visser.com.au/
 Tags: woocommerce booster, woocommerce tools, woocommerce extensions, store toolkit, delete orders
 Requires at least: 5.4
 Tested up to: 6.8.3
-Stable tag: 2.4.4
+Stable tag: 2.4.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -139,6 +139,11 @@ If you are here to report any sort of security issue with this Plugin please use
 https://visser.com.au/contact/
 
 == Changelog ==
+
+= 2.4.5 =
+* Feature: Add SaveTo Wishlist Lite for WooCommerce as a 1-click install option on the About page.
+* Feature: Add SaveTo Wishlist Lite for WooCommerce as a 1-click install option on the Growth Tools page.
+* Bug Fix: Refresh stale Funnel Builder icon URL on the Growth Tools page.
 
 = 2.4.4 =
 * Bug Fix: Checkout "Place Order" Button Label Not Replacing in Checkout Block

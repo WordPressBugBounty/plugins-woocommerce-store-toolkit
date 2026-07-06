@@ -25,6 +25,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
     <h3><?php esc_html_e( 'Other Tools By Rymera', 'woocommerce-store-toolkit' ); ?></h3>
     <div class="about-container">
+        <?php
+        $plugin_file  = 'advanced-coupons-for-woocommerce-free/advanced-coupons-for-woocommerce-free.php';
+        $is_installed = woo_st_is_plugin_installed( $plugin_file );
+        ?>
         <div class="about-card">
             <div class="card-title">
                 <img src="<?php echo esc_url( 'https://ps.w.org/advanced-coupons-for-woocommerce-free/assets/icon-128x128.png' ); ?>" alt="<?php esc_attr_e( 'Advanced Coupons', 'woocommerce-store-toolkit' ); ?>" />
@@ -37,14 +41,18 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <div class="install-status">
                     <p class="m-0">
                         <strong><?php esc_html_e( 'Status:', 'woocommerce-store-toolkit' ); ?></strong>
-                        <?php echo woo_st_is_plugin_installed( 'advanced-coupons-for-woocommerce-free/advanced-coupons-for-woocommerce-free.php' ) ? esc_html_e( 'Installed', 'woocommerce-store-toolkit' ) : esc_html_e( 'Not installed', 'woocommerce-store-toolkit' ); ?>
+                        <?php echo $is_installed ? esc_html__( 'Installed', 'woocommerce-store-toolkit' ) : esc_html__( 'Not installed', 'woocommerce-store-toolkit' ); ?>
                     </p>
-                    <?php if ( ! woo_st_is_plugin_installed( 'advanced-coupons-for-woocommerce-free/advanced-coupons-for-woocommerce-free.php' ) ) : ?>
+                    <?php if ( ! $is_installed ) : ?>
                     <a href="<?php echo esc_url( wp_nonce_url( 'update.php?action=install-plugin&plugin=advanced-coupons-for-woocommerce-free', 'install-plugin_advanced-coupons-for-woocommerce-free' ) ); ?>" class="button button-primary"><?php esc_html_e( 'Install Plugin', 'woocommerce-store-toolkit' ); ?></a>
                     <?php endif; ?>
                 </div>
             </div>
-        </div> 
+        </div>
+        <?php
+        $plugin_file  = 'wc-vendors/class-wc-vendors.php';
+        $is_installed = woo_st_is_plugin_installed( $plugin_file );
+        ?>
         <div class="about-card">
             <div class="card-title">
                 <img src="<?php echo esc_url( 'https://ps.w.org/wc-vendors/assets/icon.svg' ); ?>" alt="<?php esc_attr_e( 'WC Vendors', 'woocommerce-store-toolkit' ); ?>" />
@@ -56,15 +64,19 @@ if ( ! defined( 'ABSPATH' ) ) {
             <div class="card-footer">
                 <div class="install-status">
                     <p class="m-0">
-                        <strong><?php esc_html_e( 'Status:', 'wc-vendors' ); ?></strong>
-                        <?php echo woo_st_is_plugin_installed( 'wc-vendors/class-wc-vendors.php' ) ? esc_html_e( 'Installed', 'woocommerce-store-toolkit' ) : esc_html_e( 'Not installed', 'woocommerce-store-toolkit' ); ?>
+                        <strong><?php esc_html_e( 'Status:', 'woocommerce-store-toolkit' ); ?></strong>
+                        <?php echo $is_installed ? esc_html__( 'Installed', 'woocommerce-store-toolkit' ) : esc_html__( 'Not installed', 'woocommerce-store-toolkit' ); ?>
                     </p>
-                    <?php if ( ! woo_st_is_plugin_installed( 'wc-vendors/class-wc-vendors.php' ) ) : ?>
+                    <?php if ( ! $is_installed ) : ?>
                     <a href="<?php echo esc_url( wp_nonce_url( 'update.php?action=install-plugin&plugin=wc-vendors', 'install-plugin_wc-vendors' ) ); ?>" class="button button-primary"><?php esc_html_e( 'Install Plugin', 'woocommerce-store-toolkit' ); ?></a>
                     <?php endif; ?>
                 </div>
             </div>
-        </div> 
+        </div>
+        <?php
+        $plugin_file  = 'woocommerce-wholesale-prices/woocommerce-wholesale-prices.plugin.php';
+        $is_installed = woo_st_is_plugin_installed( $plugin_file );
+        ?>
         <div class="about-card">
             <div class="card-title">
                 <img src="<?php echo esc_url( 'https://ps.w.org/woocommerce-wholesale-prices/assets/icon-128x128.jpg' ); ?>" alt="<?php esc_attr_e( 'WooCommerce Wholesale Prices', 'woocommerce-store-toolkit' ); ?>" />
@@ -77,14 +89,18 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <div class="install-status">
                     <p class="m-0">
                         <strong><?php esc_html_e( 'Status:', 'woocommerce-store-toolkit' ); ?></strong>
-                        <?php echo woo_st_is_plugin_installed( 'woocommerce-wholesale-prices/woocommerce-wholesale-prices.plugin.php' ) ? esc_html_e( 'Installed', 'woocommerce-store-toolkit' ) : esc_html_e( 'Not installed', 'woocommerce-store-toolkit' ); ?>
+                        <?php echo $is_installed ? esc_html__( 'Installed', 'woocommerce-store-toolkit' ) : esc_html__( 'Not installed', 'woocommerce-store-toolkit' ); ?>
                     </p>
-                    <?php if ( ! woo_st_is_plugin_installed( 'woocommerce-wholesale-prices/woocommerce-wholesale-prices.plugin.php' ) ) : ?>
+                    <?php if ( ! $is_installed ) : ?>
                     <a href="<?php echo esc_url( wp_nonce_url( 'update.php?action=install-plugin&plugin=woocommerce-wholesale-prices', 'install-plugin_woocommerce-wholesale-prices' ) ); ?>" class="button button-primary"><?php esc_html_e( 'Install Plugin', 'woocommerce-store-toolkit' ); ?></a>
                     <?php endif; ?>
                 </div>
             </div>
-        </div> 
+        </div>
+        <?php
+        $plugin_file  = 'invoice-gateway-for-woocommerce/invoice-gateway-for-woocommerce.php';
+        $is_installed = woo_st_is_plugin_installed( $plugin_file );
+        ?>
         <div class="about-card">
             <div class="card-title">
                 <img src="<?php echo esc_url( 'https://ps.w.org/invoice-gateway-for-woocommerce/assets/icon-128x128.jpg' ); ?>" alt="<?php esc_attr_e( 'Invoice Gateway for WooCommerce', 'woocommerce-store-toolkit' ); ?>" />
@@ -97,14 +113,18 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <div class="install-status">
                     <p class="m-0">
                         <strong><?php esc_html_e( 'Status:', 'woocommerce-store-toolkit' ); ?></strong>
-                        <?php echo woo_st_is_plugin_installed( 'invoice-gateway-for-woocommerce/invoice-gateway-for-woocommerce.php' ) ? esc_html_e( 'Installed', 'woocommerce-store-toolkit' ) : esc_html_e( 'Not installed', 'woocommerce-store-toolkit' ); ?>
+                        <?php echo $is_installed ? esc_html__( 'Installed', 'woocommerce-store-toolkit' ) : esc_html__( 'Not installed', 'woocommerce-store-toolkit' ); ?>
                     </p>
-                    <?php if ( ! woo_st_is_plugin_installed( 'invoice-gateway-for-woocommerce/invoice-gateway-for-woocommerce.php' ) ) : ?>
+                    <?php if ( ! $is_installed ) : ?>
                     <a href="<?php echo esc_url( wp_nonce_url( 'update.php?action=install-plugin&plugin=invoice-gateway-for-woocommerce', 'install-plugin_invoice-gateway-for-woocommerce' ) ); ?>" class="button button-primary"><?php esc_html_e( 'Install Plugin', 'woocommerce-store-toolkit' ); ?></a>
                     <?php endif; ?>
                 </div>
             </div>
-        </div> 
+        </div>
+        <?php
+        $plugin_file  = 'woocommerce-store-exporter/exporter.php';
+        $is_installed = woo_st_is_plugin_installed( $plugin_file );
+        ?>
         <div class="about-card">
             <div class="card-title">
                 <img src="<?php echo esc_url( 'https://ps.w.org/woocommerce-exporter/assets/icon-128x128.png' ); ?>" alt="<?php esc_attr_e( 'Store Exporter for WooCommerce', 'woocommerce-store-toolkit' ); ?>" />
@@ -117,14 +137,18 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <div class="install-status">
                     <p class="m-0">
                         <strong><?php esc_html_e( 'Status:', 'woocommerce-store-toolkit' ); ?></strong>
-                        <?php echo woo_st_is_plugin_installed( 'woocommerce-store-exporter/exporter.php' ) ? esc_html_e( 'Installed', 'woocommerce-store-toolkit' ) : esc_html_e( 'Not installed', 'woocommerce-store-toolkit' ); ?>
+                        <?php echo $is_installed ? esc_html__( 'Installed', 'woocommerce-store-toolkit' ) : esc_html__( 'Not installed', 'woocommerce-store-toolkit' ); ?>
                     </p>
-                    <?php if ( ! woo_st_is_plugin_installed( 'woocommerce-store-exporter/exporter.php' ) ) : ?>
+                    <?php if ( ! $is_installed ) : ?>
                     <a href="<?php echo esc_url( wp_nonce_url( 'update.php?action=install-plugin&plugin=woocommerce-store-exporter', 'install-plugin_woocommerce-store-exporter' ) ); ?>" class="button button-primary"><?php esc_html_e( 'Install Plugin', 'woocommerce-store-toolkit' ); ?></a>
                     <?php endif; ?>
                 </div>
             </div>
-        </div> 
+        </div>
+        <?php
+        $plugin_file  = 'woo-product-feed-pro/woocommerce-sea.php';
+        $is_installed = woo_st_is_plugin_installed( $plugin_file );
+        ?>
         <div class="about-card">
             <div class="card-title">
                 <img src="<?php echo esc_url( 'https://ps.w.org/woo-product-feed-pro/assets/icon-128x128.png' ); ?>" alt="<?php esc_attr_e( 'Product Feed Pro by AdTribes', 'woocommerce-store-toolkit' ); ?>" />
@@ -137,10 +161,34 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <div class="install-status">
                     <p class="m-0">
                         <strong><?php esc_html_e( 'Status:', 'woocommerce-store-toolkit' ); ?></strong>
-                        <?php echo woo_st_is_plugin_installed( 'woo-product-feed-pro/woocommerce-sea.php' ) ? esc_html_e( 'Installed', 'woocommerce-store-toolkit' ) : esc_html_e( 'Not installed', 'woocommerce-store-toolkit' ); ?>
+                        <?php echo $is_installed ? esc_html__( 'Installed', 'woocommerce-store-toolkit' ) : esc_html__( 'Not installed', 'woocommerce-store-toolkit' ); ?>
                     </p>
-                    <?php if ( ! woo_st_is_plugin_installed( 'woo-product-feed-pro/woocommerce-sea.php' ) ) : ?>
+                    <?php if ( ! $is_installed ) : ?>
                     <a href="<?php echo esc_url( wp_nonce_url( 'update.php?action=install-plugin&plugin=woo-product-feed-pro', 'install-plugin_woo-product-feed-pro' ) ); ?>" class="button button-primary"><?php esc_html_e( 'Install Plugin', 'woocommerce-store-toolkit' ); ?></a>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+        <?php
+        $plugin_file  = 'saveto-wishlist-lite-for-woocommerce/saveto-wishlist-lite-for-woocommerce.php';
+        $is_installed = woo_st_is_plugin_installed( $plugin_file );
+        ?>
+        <div class="about-card">
+            <div class="card-title">
+                <img src="<?php echo esc_url( 'https://ps.w.org/saveto-wishlist-lite-for-woocommerce/assets/icon-128x128.png' ); ?>" alt="<?php esc_attr_e( 'SaveTo Wishlist Lite for WooCommerce', 'woocommerce-store-toolkit' ); ?>" />
+                <h3><?php esc_html_e( 'SaveTo Wishlist Lite for WooCommerce (Free Plugin)', 'woocommerce-store-toolkit' ); ?></h3>
+            </div>
+            <div class="card-body xs-text-center">
+                <p class="mt-0"><?php esc_html_e( 'Let your customers save products to a wishlist and share it with friends and family. Boost repeat visits and conversions by allowing shoppers to bookmark their favourite products and come back to purchase later.', 'woocommerce-store-toolkit' ); ?></p>
+            </div>
+            <div class="card-footer">
+                <div class="install-status">
+                    <p class="m-0">
+                        <strong><?php esc_html_e( 'Status:', 'woocommerce-store-toolkit' ); ?></strong>
+                        <?php echo $is_installed ? esc_html__( 'Installed', 'woocommerce-store-toolkit' ) : esc_html__( 'Not installed', 'woocommerce-store-toolkit' ); ?>
+                    </p>
+                    <?php if ( ! $is_installed ) : ?>
+                    <a href="<?php echo esc_url( wp_nonce_url( 'update.php?action=install-plugin&plugin=saveto-wishlist-lite-for-woocommerce', 'install-plugin_saveto-wishlist-lite-for-woocommerce' ) ); ?>" class="button button-primary"><?php esc_html_e( 'Install Plugin', 'woocommerce-store-toolkit' ); ?></a>
                     <?php endif; ?>
                 </div>
             </div>

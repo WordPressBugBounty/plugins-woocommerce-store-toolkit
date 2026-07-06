@@ -175,6 +175,30 @@ if ( ! defined( 'ABSPATH' ) ) {
                 </div>
             </div>
         </div>
+        <?php
+        $plugin_file  = 'saveto-wishlist-lite-for-woocommerce/saveto-wishlist-lite-for-woocommerce.php';
+        $is_installed = woo_st_is_plugin_installed( $plugin_file );
+        ?>
+        <div class="growth-tools-card" data-tags="by-our-team,email-marketing">
+            <div class="card-title">
+                <img src="<?php echo esc_url( 'https://ps.w.org/saveto-wishlist-lite-for-woocommerce/assets/icon-128x128.png' ); ?>" alt="<?php esc_attr_e( 'SaveTo Wishlist Lite for WooCommerce', 'woocommerce-store-toolkit' ); ?>" />
+                <h3><?php esc_html_e( 'SaveTo Wishlist Lite for WooCommerce (Free Plugin)', 'woocommerce-store-toolkit' ); ?></h3>
+            </div>
+            <div class="card-body xs-text-center">
+                <p class="mt-0"><?php esc_html_e( 'Let your customers save products to a wishlist and share it with friends and family. Boost repeat visits and conversions by allowing shoppers to bookmark their favourite products and come back to purchase later.', 'woocommerce-store-toolkit' ); ?></p>
+            </div>
+            <div class="card-footer">
+                <div class="install-status">
+                    <p class="m-0">
+                        <strong><?php esc_html_e( 'Status:', 'woocommerce-store-toolkit' ); ?></strong>
+                        <span class="install-status-value"><?php echo $is_installed ? esc_html__( 'Installed', 'woocommerce-store-toolkit' ) : esc_html__( 'Not installed', 'woocommerce-store-toolkit' ); ?></span>
+                    </p>
+                    <?php if ( ! $is_installed ) : ?>
+                        <a href="#" data-plugin-slug="saveto-wishlist-lite-for-woocommerce" class="button button-primary"><?php esc_html_e( 'Install Plugin', 'woocommerce-store-toolkit' ); ?></a>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
         <div class="growth-tools-card" data-tags="payments">
             <div class="card-title">
                 <img src="<?php echo esc_url( 'https://ps.w.org/funnelkit-stripe-woo-payment-gateway/assets/icon-128x128.png' ); ?>" alt="<?php esc_attr_e( 'FunnelKit Stripe Woo Payment Gateway', 'woocommerce-store-toolkit' ); ?>" />
@@ -197,7 +221,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         </div>
         <div class="growth-tools-card" data-tags="form-builders,offers-discounts">
             <div class="card-title">
-                <img src="<?php echo esc_url( 'https://ps.w.org/funnel-builder/assets/icon-128x128.jpg' ); ?>" alt="<?php esc_attr_e( 'Funnel Builder by FunnelKit', 'woocommerce-store-toolkit' ); ?>" />
+                <img src="<?php echo esc_url( 'https://ps.w.org/funnel-builder/assets/icon-256x256.gif' ); ?>" alt="<?php esc_attr_e( 'Funnel Builder by FunnelKit', 'woocommerce-store-toolkit' ); ?>" />
                 <h3><?php esc_html_e( 'Funnel Builder by FunnelKit', 'woocommerce-store-toolkit' ); ?></h3>
             </div>
             <div class="card-body xs-text-center">

@@ -1,15 +1,15 @@
-# Copyright (C) 2025 Visser Labs
+# Copyright (C) 2026 Visser Labs
 # This file is distributed under the GPL2.
 msgid ""
 msgstr ""
-"Project-Id-Version: Store Toolkit for WooCommerce 2.4.3\n"
+"Project-Id-Version: Store Toolkit for WooCommerce 2.4.5\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-store-toolkit\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-11-19T06:22:03+00:00\n"
+"POT-Creation-Date: 2026-07-06T03:08:43+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: woocommerce-store-toolkit\n"
@@ -573,6 +573,7 @@ msgid "Auto-complete Order Status"
 msgstr ""
 
 #: includes/functions.php:994
+#: js/empty-cart-frontend.js:47
 msgid "Empty Cart"
 msgstr ""
 
@@ -584,15 +585,15 @@ msgstr ""
 msgid "An invalid export type was provided"
 msgstr ""
 
-#: includes/plugin-installer.php:65
+#: includes/plugin-installer.php:66
 msgid "You do not have sufficient permissions to install and activate plugins."
 msgstr ""
 
-#: includes/plugin-installer.php:70
+#: includes/plugin-installer.php:71
 msgid "The plugin is not valid."
 msgstr ""
 
-#: includes/plugin-installer.php:89
+#: includes/plugin-installer.php:90
 msgid "The plugin is already installed."
 msgstr ""
 
@@ -672,26 +673,28 @@ msgstr ""
 msgid "Other Tools By Rymera"
 msgstr ""
 
-#: templates/admin/about.php:30
+#: templates/admin/about.php:34
 #: templates/admin/tabs-growth-tools.php:40
 msgid "Advanced Coupons"
 msgstr ""
 
-#: templates/admin/about.php:31
+#: templates/admin/about.php:35
 #: templates/admin/tabs-growth-tools.php:41
 msgid "Advanced Coupons for WooCommerce (Free Plugin)"
 msgstr ""
 
-#: templates/admin/about.php:34
+#: templates/admin/about.php:38
 #: templates/admin/tabs-growth-tools.php:44
 msgid "Extends your coupon features so you can market your store better. Adds cart conditions (coupon rules), buy one get one (BOGO) deals, url coupons, coupon categories and loads more."
 msgstr ""
 
-#: templates/admin/about.php:39
-#: templates/admin/about.php:79
-#: templates/admin/about.php:99
-#: templates/admin/about.php:119
+#: templates/admin/about.php:43
+#: templates/admin/about.php:67
+#: templates/admin/about.php:91
+#: templates/admin/about.php:115
 #: templates/admin/about.php:139
+#: templates/admin/about.php:163
+#: templates/admin/about.php:187
 #: templates/admin/tabs-growth-tools.php:49
 #: templates/admin/tabs-growth-tools.php:69
 #: templates/admin/tabs-growth-tools.php:89
@@ -699,87 +702,6 @@ msgstr ""
 #: templates/admin/tabs-growth-tools.php:129
 #: templates/admin/tabs-growth-tools.php:149
 #: templates/admin/tabs-growth-tools.php:169
-#: templates/admin/tabs-growth-tools.php:189
-#: templates/admin/tabs-growth-tools.php:209
-#: templates/admin/tabs-growth-tools.php:229
-#: templates/admin/tabs-growth-tools.php:249
-#: templates/admin/tabs-growth-tools.php:269
-#: templates/admin/tabs-growth-tools.php:289
-#: templates/admin/tabs-growth-tools.php:309
-#: templates/admin/tabs-growth-tools.php:329
-#: templates/admin/tabs-growth-tools.php:349
-#: templates/admin/tabs-growth-tools.php:369
-#: templates/admin/tabs-growth-tools.php:389
-msgid "Status:"
-msgstr ""
-
-#: templates/admin/about.php:40
-#: templates/admin/about.php:60
-#: templates/admin/about.php:80
-#: templates/admin/about.php:100
-#: templates/admin/about.php:120
-#: templates/admin/about.php:140
-#: templates/admin/tabs-growth-tools.php:50
-#: templates/admin/tabs-growth-tools.php:70
-#: templates/admin/tabs-growth-tools.php:90
-#: templates/admin/tabs-growth-tools.php:110
-#: templates/admin/tabs-growth-tools.php:130
-#: templates/admin/tabs-growth-tools.php:150
-#: templates/admin/tabs-growth-tools.php:170
-#: templates/admin/tabs-growth-tools.php:190
-#: templates/admin/tabs-growth-tools.php:210
-#: templates/admin/tabs-growth-tools.php:230
-#: templates/admin/tabs-growth-tools.php:250
-#: templates/admin/tabs-growth-tools.php:270
-#: templates/admin/tabs-growth-tools.php:290
-#: templates/admin/tabs-growth-tools.php:310
-#: templates/admin/tabs-growth-tools.php:330
-#: templates/admin/tabs-growth-tools.php:350
-#: templates/admin/tabs-growth-tools.php:370
-#: templates/admin/tabs-growth-tools.php:390
-msgid "Installed"
-msgstr ""
-
-#: templates/admin/about.php:40
-#: templates/admin/about.php:60
-#: templates/admin/about.php:80
-#: templates/admin/about.php:100
-#: templates/admin/about.php:120
-#: templates/admin/about.php:140
-#: templates/admin/tabs-growth-tools.php:50
-#: templates/admin/tabs-growth-tools.php:70
-#: templates/admin/tabs-growth-tools.php:90
-#: templates/admin/tabs-growth-tools.php:110
-#: templates/admin/tabs-growth-tools.php:130
-#: templates/admin/tabs-growth-tools.php:150
-#: templates/admin/tabs-growth-tools.php:170
-#: templates/admin/tabs-growth-tools.php:190
-#: templates/admin/tabs-growth-tools.php:210
-#: templates/admin/tabs-growth-tools.php:230
-#: templates/admin/tabs-growth-tools.php:250
-#: templates/admin/tabs-growth-tools.php:270
-#: templates/admin/tabs-growth-tools.php:290
-#: templates/admin/tabs-growth-tools.php:310
-#: templates/admin/tabs-growth-tools.php:330
-#: templates/admin/tabs-growth-tools.php:350
-#: templates/admin/tabs-growth-tools.php:370
-#: templates/admin/tabs-growth-tools.php:390
-msgid "Not installed"
-msgstr ""
-
-#: templates/admin/about.php:43
-#: templates/admin/about.php:63
-#: templates/admin/about.php:83
-#: templates/admin/about.php:103
-#: templates/admin/about.php:123
-#: templates/admin/about.php:143
-#: templates/admin/tabs-growth-tools.php:53
-#: templates/admin/tabs-growth-tools.php:73
-#: templates/admin/tabs-growth-tools.php:93
-#: templates/admin/tabs-growth-tools.php:113
-#: templates/admin/tabs-growth-tools.php:133
-#: templates/admin/tabs-growth-tools.php:153
-#: templates/admin/tabs-growth-tools.php:173
 #: templates/admin/tabs-growth-tools.php:193
 #: templates/admin/tabs-growth-tools.php:213
 #: templates/admin/tabs-growth-tools.php:233
@@ -791,82 +713,185 @@ msgstr ""
 #: templates/admin/tabs-growth-tools.php:353
 #: templates/admin/tabs-growth-tools.php:373
 #: templates/admin/tabs-growth-tools.php:393
+#: templates/admin/tabs-growth-tools.php:413
+msgid "Status:"
+msgstr ""
+
+#: templates/admin/about.php:44
+#: templates/admin/about.php:68
+#: templates/admin/about.php:92
+#: templates/admin/about.php:116
+#: templates/admin/about.php:140
+#: templates/admin/about.php:164
+#: templates/admin/about.php:188
+#: templates/admin/tabs-growth-tools.php:50
+#: templates/admin/tabs-growth-tools.php:70
+#: templates/admin/tabs-growth-tools.php:90
+#: templates/admin/tabs-growth-tools.php:110
+#: templates/admin/tabs-growth-tools.php:130
+#: templates/admin/tabs-growth-tools.php:150
+#: templates/admin/tabs-growth-tools.php:170
+#: templates/admin/tabs-growth-tools.php:194
+#: templates/admin/tabs-growth-tools.php:214
+#: templates/admin/tabs-growth-tools.php:234
+#: templates/admin/tabs-growth-tools.php:254
+#: templates/admin/tabs-growth-tools.php:274
+#: templates/admin/tabs-growth-tools.php:294
+#: templates/admin/tabs-growth-tools.php:314
+#: templates/admin/tabs-growth-tools.php:334
+#: templates/admin/tabs-growth-tools.php:354
+#: templates/admin/tabs-growth-tools.php:374
+#: templates/admin/tabs-growth-tools.php:394
+#: templates/admin/tabs-growth-tools.php:414
+msgid "Installed"
+msgstr ""
+
+#: templates/admin/about.php:44
+#: templates/admin/about.php:68
+#: templates/admin/about.php:92
+#: templates/admin/about.php:116
+#: templates/admin/about.php:140
+#: templates/admin/about.php:164
+#: templates/admin/about.php:188
+#: templates/admin/tabs-growth-tools.php:50
+#: templates/admin/tabs-growth-tools.php:70
+#: templates/admin/tabs-growth-tools.php:90
+#: templates/admin/tabs-growth-tools.php:110
+#: templates/admin/tabs-growth-tools.php:130
+#: templates/admin/tabs-growth-tools.php:150
+#: templates/admin/tabs-growth-tools.php:170
+#: templates/admin/tabs-growth-tools.php:194
+#: templates/admin/tabs-growth-tools.php:214
+#: templates/admin/tabs-growth-tools.php:234
+#: templates/admin/tabs-growth-tools.php:254
+#: templates/admin/tabs-growth-tools.php:274
+#: templates/admin/tabs-growth-tools.php:294
+#: templates/admin/tabs-growth-tools.php:314
+#: templates/admin/tabs-growth-tools.php:334
+#: templates/admin/tabs-growth-tools.php:354
+#: templates/admin/tabs-growth-tools.php:374
+#: templates/admin/tabs-growth-tools.php:394
+#: templates/admin/tabs-growth-tools.php:414
+msgid "Not installed"
+msgstr ""
+
+#: templates/admin/about.php:47
+#: templates/admin/about.php:71
+#: templates/admin/about.php:95
+#: templates/admin/about.php:119
+#: templates/admin/about.php:143
+#: templates/admin/about.php:167
+#: templates/admin/about.php:191
+#: templates/admin/tabs-growth-tools.php:53
+#: templates/admin/tabs-growth-tools.php:73
+#: templates/admin/tabs-growth-tools.php:93
+#: templates/admin/tabs-growth-tools.php:113
+#: templates/admin/tabs-growth-tools.php:133
+#: templates/admin/tabs-growth-tools.php:153
+#: templates/admin/tabs-growth-tools.php:173
+#: templates/admin/tabs-growth-tools.php:197
+#: templates/admin/tabs-growth-tools.php:217
+#: templates/admin/tabs-growth-tools.php:237
+#: templates/admin/tabs-growth-tools.php:257
+#: templates/admin/tabs-growth-tools.php:277
+#: templates/admin/tabs-growth-tools.php:297
+#: templates/admin/tabs-growth-tools.php:317
+#: templates/admin/tabs-growth-tools.php:337
+#: templates/admin/tabs-growth-tools.php:357
+#: templates/admin/tabs-growth-tools.php:377
+#: templates/admin/tabs-growth-tools.php:397
+#: templates/admin/tabs-growth-tools.php:417
 msgid "Install Plugin"
 msgstr ""
 
-#: templates/admin/about.php:50
+#: templates/admin/about.php:58
 #: templates/admin/tabs-growth-tools.php:60
 msgid "WC Vendors"
 msgstr ""
 
-#: templates/admin/about.php:51
+#: templates/admin/about.php:59
 #: templates/admin/tabs-growth-tools.php:61
 msgid "WC Vendors (Free Plugin)"
 msgstr ""
 
-#: templates/admin/about.php:54
+#: templates/admin/about.php:62
 #: templates/admin/tabs-growth-tools.php:64
 msgid "Easiest way to create your multivendor marketplace and earn commission from every sale. Create a WooCommerce marketplace with multi-seller, product vendor & multi vendor commissions."
 msgstr ""
 
-#: templates/admin/about.php:70
+#: templates/admin/about.php:82
 #: templates/admin/tabs-growth-tools.php:80
 msgid "WooCommerce Wholesale Prices"
 msgstr ""
 
-#: templates/admin/about.php:71
+#: templates/admin/about.php:83
 #: templates/admin/tabs-growth-tools.php:81
 msgid "WooCommerce Wholesale Prices (Free Plugin)"
 msgstr ""
 
-#: templates/admin/about.php:74
+#: templates/admin/about.php:86
 #: templates/admin/tabs-growth-tools.php:84
 msgid "The #1 WooCommerce wholesale plugin for adding wholesale prices & managing B2B customers. Trusted by over 25k store owners for managing wholesale orders, pricing, visibility, user roles, and more."
 msgstr ""
 
-#: templates/admin/about.php:90
+#: templates/admin/about.php:106
 #: templates/admin/tabs-growth-tools.php:100
 msgid "Invoice Gateway for WooCommerce"
 msgstr ""
 
-#: templates/admin/about.php:91
+#: templates/admin/about.php:107
 #: templates/admin/tabs-growth-tools.php:101
 msgid "Invoice Gateway for WooCommerce (Free Plugin)"
 msgstr ""
 
-#: templates/admin/about.php:94
+#: templates/admin/about.php:110
 #: templates/admin/tabs-growth-tools.php:104
 msgid "Accept orders via a special invoice payment gateway method which lets your customer enter their order without upfront payment. Then just issue an invoice from your accounting system and paste in the number."
 msgstr ""
 
-#: templates/admin/about.php:110
+#: templates/admin/about.php:130
 #: templates/admin/tabs-growth-tools.php:120
 msgid "Store Exporter for WooCommerce"
 msgstr ""
 
-#: templates/admin/about.php:111
+#: templates/admin/about.php:131
 #: templates/admin/tabs-growth-tools.php:121
 msgid "Store Exporter for WooCommerce (Free Plugin)"
 msgstr ""
 
-#: templates/admin/about.php:114
+#: templates/admin/about.php:134
 #: templates/admin/tabs-growth-tools.php:124
 msgid "Easily export Orders, Subscriptions, Coupons, Products, Categories, Tags to a variety of formats. The deluxe version also adds scheduled exporting for easy reporting and syncing with other systems."
 msgstr ""
 
-#: templates/admin/about.php:130
+#: templates/admin/about.php:154
 #: templates/admin/tabs-growth-tools.php:140
 msgid "Product Feed Pro by AdTribes"
 msgstr ""
 
-#: templates/admin/about.php:131
+#: templates/admin/about.php:155
 #: templates/admin/tabs-growth-tools.php:141
 msgid "Product Feed Pro (Free Plugin)"
 msgstr ""
 
-#: templates/admin/about.php:134
+#: templates/admin/about.php:158
 #: templates/admin/tabs-growth-tools.php:144
 msgid "Helps you generate and manage product feeds for various marketing channels, such as Google Shopping, Facebook, and more, to optimize your eCommerce store's visibility and sales."
+msgstr ""
+
+#: templates/admin/about.php:178
+#: templates/admin/tabs-growth-tools.php:184
+msgid "SaveTo Wishlist Lite for WooCommerce"
+msgstr ""
+
+#: templates/admin/about.php:179
+#: templates/admin/tabs-growth-tools.php:185
+msgid "SaveTo Wishlist Lite for WooCommerce (Free Plugin)"
+msgstr ""
+
+#: templates/admin/about.php:182
+#: templates/admin/tabs-growth-tools.php:188
+msgid "Let your customers save products to a wishlist and share it with friends and family. Boost repeat visits and conversions by allowing shoppers to bookmark their favourite products and come back to purchase later."
 msgstr ""
 
 #: templates/admin/brand_data.php:2
@@ -1047,105 +1072,105 @@ msgstr ""
 msgid "Get AI Agents for WooCommerce with StoreAgent.ai, the free AI-powered plugin designed to automate tasks, personalize customer interactions, and optimize your eCommerce operations."
 msgstr ""
 
-#: templates/admin/tabs-growth-tools.php:180
-#: templates/admin/tabs-growth-tools.php:181
+#: templates/admin/tabs-growth-tools.php:204
+#: templates/admin/tabs-growth-tools.php:205
 msgid "FunnelKit Stripe Woo Payment Gateway"
 msgstr ""
 
-#: templates/admin/tabs-growth-tools.php:184
+#: templates/admin/tabs-growth-tools.php:208
 msgid "Enable secure and efficient payment processing on your WooCommerce store with Stripe integration."
 msgstr ""
 
-#: templates/admin/tabs-growth-tools.php:200
-#: templates/admin/tabs-growth-tools.php:201
+#: templates/admin/tabs-growth-tools.php:224
+#: templates/admin/tabs-growth-tools.php:225
 msgid "Funnel Builder by FunnelKit"
 msgstr ""
 
-#: templates/admin/tabs-growth-tools.php:204
+#: templates/admin/tabs-growth-tools.php:228
 msgid "Create high-converting sales funnels to optimize your WooCommerce store’s revenue."
 msgstr ""
 
-#: templates/admin/tabs-growth-tools.php:220
-#: templates/admin/tabs-growth-tools.php:221
+#: templates/admin/tabs-growth-tools.php:244
+#: templates/admin/tabs-growth-tools.php:245
 msgid "WPForms Lite"
 msgstr ""
 
-#: templates/admin/tabs-growth-tools.php:224
+#: templates/admin/tabs-growth-tools.php:248
 msgid "Easily create forms for your website with this user-friendly drag-and-drop form builder."
 msgstr ""
 
-#: templates/admin/tabs-growth-tools.php:240
-#: templates/admin/tabs-growth-tools.php:241
+#: templates/admin/tabs-growth-tools.php:264
+#: templates/admin/tabs-growth-tools.php:265
 msgid "Formidable Forms"
 msgstr ""
 
-#: templates/admin/tabs-growth-tools.php:244
+#: templates/admin/tabs-growth-tools.php:268
 msgid "Create advanced forms and manage form entries with this powerful form builder."
 msgstr ""
 
-#: templates/admin/tabs-growth-tools.php:260
-#: templates/admin/tabs-growth-tools.php:261
+#: templates/admin/tabs-growth-tools.php:284
+#: templates/admin/tabs-growth-tools.php:285
 msgid "Google Analytics for WordPress by MonsterInsights"
 msgstr ""
 
-#: templates/admin/tabs-growth-tools.php:264
+#: templates/admin/tabs-growth-tools.php:288
 msgid "Integrate Google Analytics with your WordPress site and get insights into your visitors and content."
 msgstr ""
 
-#: templates/admin/tabs-growth-tools.php:280
-#: templates/admin/tabs-growth-tools.php:281
+#: templates/admin/tabs-growth-tools.php:304
+#: templates/admin/tabs-growth-tools.php:305
 msgid "OptinMonster"
 msgstr ""
 
-#: templates/admin/tabs-growth-tools.php:284
+#: templates/admin/tabs-growth-tools.php:308
 msgid "Create high-converting popups and forms to boost your email list and grow your leads."
 msgstr ""
 
-#: templates/admin/tabs-growth-tools.php:300
-#: templates/admin/tabs-growth-tools.php:301
+#: templates/admin/tabs-growth-tools.php:324
+#: templates/admin/tabs-growth-tools.php:325
 msgid "Uncanny Automator"
 msgstr ""
 
-#: templates/admin/tabs-growth-tools.php:304
+#: templates/admin/tabs-growth-tools.php:328
 msgid "Automate your WordPress workflows by connecting plugins, apps, and sites with ease."
 msgstr ""
 
-#: templates/admin/tabs-growth-tools.php:320
+#: templates/admin/tabs-growth-tools.php:344
 msgid "Metorik Helper"
 msgstr ""
 
-#: templates/admin/tabs-growth-tools.php:321
+#: templates/admin/tabs-growth-tools.php:345
 msgid "Metorik"
 msgstr ""
 
-#: templates/admin/tabs-growth-tools.php:324
+#: templates/admin/tabs-growth-tools.php:348
 msgid "Enhance your WooCommerce store analytics and reporting with Metorik."
 msgstr ""
 
-#: templates/admin/tabs-growth-tools.php:340
-#: templates/admin/tabs-growth-tools.php:341
+#: templates/admin/tabs-growth-tools.php:364
+#: templates/admin/tabs-growth-tools.php:365
 msgid "Reviews Feed"
 msgstr ""
 
-#: templates/admin/tabs-growth-tools.php:344
+#: templates/admin/tabs-growth-tools.php:368
 msgid "Display reviews from multiple platforms on your WordPress site to boost credibility."
 msgstr ""
 
-#: templates/admin/tabs-growth-tools.php:360
-#: templates/admin/tabs-growth-tools.php:361
+#: templates/admin/tabs-growth-tools.php:384
+#: templates/admin/tabs-growth-tools.php:385
 msgid "RafflePress"
 msgstr ""
 
-#: templates/admin/tabs-growth-tools.php:364
+#: templates/admin/tabs-growth-tools.php:388
 msgid "Create viral giveaways and contests to grow your email list and social media following."
 msgstr ""
 
-#: templates/admin/tabs-growth-tools.php:380
-#: templates/admin/tabs-growth-tools.php:381
+#: templates/admin/tabs-growth-tools.php:404
+#: templates/admin/tabs-growth-tools.php:405
 msgid "All in One SEO Pack"
 msgstr ""
 
-#: templates/admin/tabs-growth-tools.php:384
+#: templates/admin/tabs-growth-tools.php:408
 msgid "Optimize your WordPress site for SEO with this comprehensive and user-friendly plugin."
 msgstr ""
 
@@ -1754,4 +1779,19 @@ msgstr ""
 
 #: templates/admin/widgets/dashboard-growth-tools-prompt.php:11
 msgid "View Growth Tools"
+msgstr ""
+
+#: js/empty-cart-block.js:6
+#: js/empty-cart-block.js:10
+#: js/empty-cart-block.js:13
+msgid "Empty Cart Button"
+msgstr ""
+
+#: js/empty-cart-frontend.js:35
+#: js/empty-cart-frontend.js:39
+msgid "Error emptying cart. Please try again."
+msgstr ""
+
+#: js/empty-cart-frontend.js:47
+msgid "Emptying Cart..."
 msgstr ""
